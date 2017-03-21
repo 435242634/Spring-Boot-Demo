@@ -1,5 +1,6 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
@@ -26,8 +27,11 @@ public class DemoApplication {
     @Value("${book.price}")
     private double bookPrice;
 
+    @Autowired
+    private BookProperties bookProperties;
+
     @RequestMapping("/")
     public String index() {
-        return bookName + bookPrice;
+        return bookProperties.getName() + bookProperties.getPrice();
     }
 }
