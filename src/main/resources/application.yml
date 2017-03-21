@@ -1,3 +1,7 @@
 server:
   port: 9090
   context-path: /helloboot
+
+book:
+  name: 书名
+  price: 89.9
