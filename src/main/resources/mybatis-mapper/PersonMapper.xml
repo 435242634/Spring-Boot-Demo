@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.PersonMapper">
+
+    <insert id="insert" parameterType="PersonDO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO person(name,age) VALUES(#{name},#{age})
+    </insert>
+
+    <update id="update" parameterType="PersonDO">
+        UPDATE person SET name=#{name},age=#{age} WHERE id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM person WHERE id=#{id}
+    </delete>
+
+    <select id="selectPersonById" resultType="PersonDO">
+        select * from person where id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="PersonDO">
+        SELECT id,name,age FROM person
+    </select>
+
+
+</mapper>
